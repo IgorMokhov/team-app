@@ -6,14 +6,16 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
+:root {
+  --primary-color: #512689;
+  --hover-color: #6a5acd;
+  --text-primary: #151317;
+  --text-secondary: #ffffff;
+  --background-color: #ffffff;
 }
 
-:root {
-  --primary-color: #512689; 
-  --hover-color: #6a5acd; 
-  --text-primary: #151317; 
-  --text-secondary: #ffffff; 
-  --background-color: #ffffff; 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
 }

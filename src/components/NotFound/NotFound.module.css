@@ -1,0 +1,6 @@
+.notFound {
+  background-color: var(--primary-color);
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 80px;
+}

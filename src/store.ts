@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userReduser } from './features/user/user-slice';
+import { userReducer } from './features/user/user-slice';
+import { usersReducer } from './features/users/users-slice';
 
 export const store = configureStore({
-  reducer: { userReduser },
+  reducer: {
+    user: userReducer,
+    users: usersReducer,
+  },
   devTools: true,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

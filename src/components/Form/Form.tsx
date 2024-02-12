@@ -1,5 +1,7 @@
-import { ChangeEvent, FormEvent, SyntheticEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './Form.module.css';
+import { useAppDispatch } from '../../redux-hooks';
+import { registerUser } from '../../features/user/user-async-actions';
 
 interface FormData {
   name: string;
@@ -16,6 +18,8 @@ export const Form = () => {
     confirmPassword: '',
   });
 
+  const dispatch = useAppDispatch();
+
   const onChangeHadler = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -26,7 +30,13 @@ export const Form = () => {
 
   const onSubmitHadler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+
+    dispatch(
+      registerUser({
+        email: formData.email,
+        password: formData.password,
+      })
+    );
   };
 
   return (
@@ -74,6 +84,7 @@ export const Form = () => {
         />
       </label>
       <input type="submit" value="Зарегистрироваться" />
+      <p>Тестовая почта для регистрации: eve.holt@reqres.in</p>
     </form>
   );
 };

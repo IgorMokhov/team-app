@@ -1,7 +1,5 @@
+import { UserDetails } from '../features/details/UserDetails/UserDetails';
+
 export const DetailsPage = () => {
-  return (
-    <div>
-      <h3>DetailsPage</h3>
-    </div>
-  );
+  return <UserDetails />;
 };

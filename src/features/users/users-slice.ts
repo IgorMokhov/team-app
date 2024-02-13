@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { LocalUser, Status } from '../../types';
 import { getUsers } from './users-async-actions';
-import { extractLocalUsers } from '../../utils/extractLocalUser';
+import { extractLocalUsers } from '../../utils/userDataConverters';
 
 interface UsersSlice {
-  status: Status;
+  loading: Status;
   usersList: LocalUser[];
   error: string | null;
 }
 
 const initialState: UsersSlice = {
-  status: 'idle',
+  loading: 'idle',
   usersList: [],
   error: null,
 };
@@ -22,15 +22,15 @@ const usersSlice = createSlice({
   extraReducers: (buider) => {
     buider
       .addCase(getUsers.pending, (state) => {
-        state.status = 'pending';
+        state.loading = 'pending';
         state.error = null;
       })
       .addCase(getUsers.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.loading = 'succeeded';
         state.usersList = extractLocalUsers(action.payload.data);
       })
       .addCase(getUsers.rejected, (state, action) => {
-        state.status = 'failed';
+        state.loading = 'failed';
         state.error = action.error.message || 'Unknown error';
       });
   },

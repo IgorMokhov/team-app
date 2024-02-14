@@ -8,7 +8,6 @@ export const getUsers = createAsyncThunk<{ data: ReqresUser[] }>(
   async () => {
     try {
       const response = await axios.get(BASE_URL + USERS_URL);
-
       return response.data;
     } catch (error) {
       throw new Error((error as Error).message);

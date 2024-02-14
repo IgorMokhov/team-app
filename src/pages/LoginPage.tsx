@@ -1,9 +1,9 @@
-import { Form } from '../components/Form/Form';
+import { Login } from '../components/Login/Login';
 
 export const LoginPage = () => {
   return (
     <>
-      <Form />
+      <Login />
     </>
   );
 };

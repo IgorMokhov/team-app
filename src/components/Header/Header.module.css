@@ -5,8 +5,24 @@
   margin-bottom: 50px;
 }
 
+.headerInner {
+  position: relative;
+}
+
+.headerInner button {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .header h1 {
-  padding: 40px 0 15px;
+  padding: 35px 0 10px;
   font-size: 64px;
 }
 
@@ -15,5 +31,3 @@
   margin: 0 auto;
   padding-bottom: 40px;
 }
-
-

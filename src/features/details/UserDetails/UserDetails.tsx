@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { selectDetails } from '../details-selectors';
 import { useAppDispatch } from '../../../redux-hooks';
 import { getDetailsUser } from '../details-async-actions';
 import { clearDetailsUser } from '../details-slice';
 import { Container } from '../../../components/Container/Container';
 import styles from './UserDetails.module.css';
+import { logOut } from '../../user/user-slice';
 
 export const UserDetails = () => {
   const { id } = useParams() as { id: string };
@@ -39,7 +40,7 @@ export const UserDetails = () => {
                 <h2>{`${user.firstName} ${user.lastName}`}</h2>
               </>
             )}
-            <button onClick={() => navigate('/')}>Выход</button>
+            <button onClick={() => dispatch(logOut())}>Выход</button>
           </div>
         </Container>
       </div>

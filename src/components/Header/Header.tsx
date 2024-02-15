@@ -1,6 +1,7 @@
 import { Container } from '../Container/Container';
 import { Button } from '../../UI/Button/Button';
 import { UseLogout } from '../../hooks/use-logout';
+import iconLogout from '../../assets/icons/iconLogout.svg';
 import styles from './Header.module.css';
 
 export const Header = () => {
@@ -17,7 +18,12 @@ export const Header = () => {
             самых сложных ситуаций.
           </p>
           <Button className={styles.headerLogoutBtn} onClick={() => logout()}>
-            Выход
+            <span className={styles.headerBtnText}>Выход</span>
+            <img
+              className={styles.headerBtnIcon}
+              src={iconLogout}
+              alt="iconLogout"
+            />
           </Button>
         </div>
       </Container>

@@ -9,7 +9,11 @@
   position: relative;
 }
 
-.headerInner .headerLogoutBtn {
+.headerBtnIcon {
+  display: none;
+}
+
+.headerLogoutBtn {
   position: absolute;
   top: 30px;
   right: 0;
@@ -30,4 +34,42 @@
   max-width: 846px;
   margin: 0 auto;
   padding-bottom: 40px;
+}
+
+@media (max-width: 1320px) {
+  .header {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 990px) {
+  .header h1 {
+    padding: 55px 0 10px;
+    font-size: 35px;
+  }
+
+  .header p {
+    font-size: 16px;
+    max-width: 530px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .headerLogoutBtn {
+    border: none;
+    right: 10px;
+    top: 10px;
+  }
+
+  .headerBtnText {
+    display: none;
+  }
+
+  .headerBtnIcon {
+    display: block;
+  }
 }

@@ -2,5 +2,58 @@
   background-color: var(--primary-color);
   color: var(--text-secondary);
   text-align: center;
-  padding: 80px;
+}
+
+.notFoundInner {
+  display: flex;
+  flex-direction: column;
+  padding: 95px 0;
+}
+
+.notFound h2 {
+  font-size: 64px;
+}
+
+.notFoundBtn img {
+  display: none;
+}
+
+.notFoundBtn {
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: -45px;
+}
+
+@media (max-width: 1320px) {
+  .notFoundInner {
+    padding: 70px 10px;
+  }
+}
+
+@media (max-width: 990px) {
+  .notFound h2 {
+    font-size: 36px;
+  }
+
+  .notFoundBtn {
+  }
+}
+
+@media (max-width: 650px) {
+  .notFoundBtn {
+    border: none;
+  }
+
+  .notFoundBtn span {
+    display: none;
+  }
+
+  .notFoundBtn img {
+    display: block;
+  }
 }

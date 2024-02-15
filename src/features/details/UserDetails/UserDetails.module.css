@@ -4,21 +4,27 @@
   margin-bottom: 50px;
 }
 
+.userBackIcon,
+.userLogoutIcon {
+  display: none;
+}
+
 .userDetailsHeader {
   display: flex;
   align-items: flex-start;
+  position: relative;
 }
 
-.userDetailsHeader img {
+.userAvatar {
   padding: 40px 30px;
 }
 
-.userDetailsHeader h2 {
+.userTitle {
   font-size: 64px;
   align-self: center;
 }
-
-.userDetailsHeader .userHeaderBtn {
+.userBtnBack,
+.userBtnLogout {
   margin-top: 30px;
   padding: 8px 16px;
   background-color: transparent;
@@ -28,7 +34,7 @@
   cursor: pointer;
 }
 
-.userDetailsHeader button:last-of-type {
+.userBtnLogout {
   margin-left: auto;
 }
 
@@ -48,4 +54,82 @@
 
 .userDetailsPhone {
   margin-bottom: 15px;
+}
+
+@media (max-width: 1320px) {
+  .userDetailsHeader {
+    padding: 0 10px;
+  }
+
+  .userLogoutIcon {
+    right: 50px;
+  }
+}
+
+@media (max-width: 990px) {
+  .userTitle {
+    font-size: 36px;
+  }
+
+  .userDetailsBody {
+    flex-direction: column;
+    max-width: 630px;
+    margin: 0 auto;
+  }
+
+  .userDetailsText {
+    margin: 0;
+    order: 2;
+  }
+
+  .userDetailsContacts {
+    order: 1;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 650px) {
+  .userDetailsHeader {
+    flex-direction: column;
+  }
+
+  .userBtnBack,
+  .userBtnLogout {
+    border: none;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+  }
+
+  .userBtnBack {
+    left: 20px;
+  }
+
+  .userBtnLogout {
+    right: 20px;
+  }
+
+  .userBackText,
+  .userLogoutText {
+    display: none;
+  }
+
+  .userBackIcon,
+  .userLogoutIcon {
+    display: block;
+  }
+
+  .userTitle {
+    order: 1;
+    padding: 55px 0 35px;
+  }
+  .userAvatar {
+    order: 2;
+    padding: 0 0 50px 0;
+    align-self: center;
+  }
+
+  .userDetailsBody {
+    padding: 0 10px 0;
+  }
 }

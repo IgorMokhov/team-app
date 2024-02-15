@@ -8,6 +8,8 @@ import { clearDetailsUser } from '../details-slice';
 import { Container } from '../../../components/Container/Container';
 import { UseLogout } from '../../../hooks/use-logout';
 import { Button } from '../../../UI/Button/Button';
+import iconBack from '../../../assets/icons/iconBack.svg';
+import iconLogout from '../../../assets/icons/iconLogout.svg';
 import styles from './UserDetails.module.css';
 
 export const UserDetails = () => {
@@ -36,19 +38,35 @@ export const UserDetails = () => {
         <Container>
           <div className={styles.userDetailsHeader}>
             <Button
-              className={styles.userHeaderBtn}
+              className={styles.userBtnBack}
               onClick={() => navigate('/users')}
             >
-              Назад
+              <span className={styles.userBackText}>Назад</span>
+              <img
+                className={styles.userBackIcon}
+                src={iconBack}
+                alt="iconBack"
+              />
             </Button>
             {user && (
               <>
-                <img src={user.avatar} alt="avatar" />
-                <h2>{`${user.firstName} ${user.lastName}`}</h2>
+                <img
+                  className={styles.userAvatar}
+                  src={user.avatar}
+                  alt="avatar"
+                />
+                <h2
+                  className={styles.userTitle}
+                >{`${user.firstName} ${user.lastName}`}</h2>
               </>
             )}
-            <Button className={styles.userHeaderBtn} onClick={() => logout()}>
-              Выход
+            <Button className={styles.userBtnLogout} onClick={() => logout()}>
+              <span className={styles.userLogoutText}>Выход</span>
+              <img
+                className={styles.userLogoutIcon}
+                src={iconLogout}
+                alt="iconLogout"
+              />
             </Button>
           </div>
         </Container>
@@ -83,7 +101,7 @@ export const UserDetails = () => {
               других бизнес-проектов.
             </p>
           </div>
-          <div>
+          <div className={styles.userDetailsContacts}>
             <div className={styles.userDetailsPhone}>+7 (954) 333-44-55</div>
             <div>{user?.email}</div>
           </div>

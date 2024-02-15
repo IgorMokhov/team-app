@@ -1,5 +1,5 @@
 interface ButtonProps {
-  className: string;
+  className?: string;
   children: React.ReactNode;
   onClick: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 }

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { loginUser, registerUser } from './user-async-actions';
 
 interface UserSlice {
@@ -15,10 +15,10 @@ const userSlice = createSlice({
   name: '@@user',
   initialState,
   reducers: {
-    setToken: (state, action) => {
+    setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
     },
-    logOut: (state) => {
+    logoutUser: (state) => {
       state.token = null;
       state.error = null;
       localStorage.removeItem('token');
@@ -49,5 +49,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setToken, logOut } = userSlice.actions;
+export const { setToken, logoutUser } = userSlice.actions;
 export const userReducer = userSlice.reducer;

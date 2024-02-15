@@ -16,6 +16,7 @@ html {
   --text-primary: #151317;
   --text-secondary: #ffffff;
   --background-color: #ffffff;
+  --error-color: red;
 }
 
 body {

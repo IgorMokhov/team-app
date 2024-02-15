@@ -11,7 +11,6 @@
 
 .userDetailsHeader img {
   padding: 40px 30px;
-  /* height: 208px; */
 }
 
 .userDetailsHeader h2 {
@@ -19,7 +18,7 @@
   align-self: center;
 }
 
-.userDetailsHeader button {
+.userDetailsHeader .userHeaderBtn {
   margin-top: 30px;
   padding: 8px 16px;
   background-color: transparent;

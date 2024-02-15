@@ -1,7 +1,11 @@
 import { Container } from '../Container/Container';
+import { Button } from '../../UI/Button/Button';
+import { UseLogout } from '../../hooks/use-logout';
 import styles from './Header.module.css';
 
 export const Header = () => {
+  const logout = UseLogout();
+
   return (
     <header className={styles.header}>
       <Container>
@@ -12,7 +16,9 @@ export const Header = () => {
             которые ложатся на их плечи, и умеющие находить выход из любых, даже
             самых сложных ситуаций.
           </p>
-          <button>Выход</button>
+          <Button className={styles.headerLogoutBtn} onClick={() => logout()}>
+            Выход
+          </Button>
         </div>
       </Container>
     </header>

@@ -1,19 +1,21 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import { selectDetails } from '../details-selectors';
 import { useAppDispatch } from '../../../redux-hooks';
 import { getDetailsUser } from '../details-async-actions';
 import { clearDetailsUser } from '../details-slice';
 import { Container } from '../../../components/Container/Container';
+import { UseLogout } from '../../../hooks/use-logout';
+import { Button } from '../../../UI/Button/Button';
 import styles from './UserDetails.module.css';
-import { logOut } from '../../user/user-slice';
 
 export const UserDetails = () => {
   const { id } = useParams() as { id: string };
   const { loading, user, error } = useSelector(selectDetails);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const logout = UseLogout();
 
   useEffect(() => {
     dispatch(getDetailsUser(id));
@@ -24,7 +26,7 @@ export const UserDetails = () => {
   }, [id, dispatch]);
 
   if (loading === 'failed' && error !== null) {
-    console.log(error);
+    // there may be some kind of error handling here
     navigate('/users');
   }
 
@@ -33,14 +35,21 @@ export const UserDetails = () => {
       <div className={styles.headerWrapper}>
         <Container>
           <div className={styles.userDetailsHeader}>
-            <button onClick={() => navigate('/users')}>Назад</button>
+            <Button
+              className={styles.userHeaderBtn}
+              onClick={() => navigate('/users')}
+            >
+              Назад
+            </Button>
             {user && (
               <>
                 <img src={user.avatar} alt="avatar" />
                 <h2>{`${user.firstName} ${user.lastName}`}</h2>
               </>
             )}
-            <button onClick={() => dispatch(logOut())}>Выход</button>
+            <Button className={styles.userHeaderBtn} onClick={() => logout()}>
+              Выход
+            </Button>
           </div>
         </Container>
       </div>

@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.headerInner button {
+.headerInner .headerLogoutBtn {
   position: absolute;
   top: 30px;
   right: 0;

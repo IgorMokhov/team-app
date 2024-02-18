@@ -1,0 +1,15 @@
+.button {
+  padding: 8px 16px;
+  background-color: transparent;
+  font-size: 16px;
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .button {
+    border: none;
+  }
+}

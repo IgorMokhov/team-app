@@ -19,12 +19,6 @@
 }
 
 .notFoundBtn {
-  padding: 8px 16px;
-  background-color: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--text-secondary);
-  border-radius: 8px;
-  cursor: pointer;
   align-self: flex-start;
   margin-top: -45px;
 }
@@ -39,16 +33,9 @@
   .notFound h2 {
     font-size: 36px;
   }
-
-  .notFoundBtn {
-  }
 }
 
 @media (max-width: 650px) {
-  .notFoundBtn {
-    border: none;
-  }
-
   .notFoundBtn span {
     display: none;
   }

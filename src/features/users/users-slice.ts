@@ -6,12 +6,16 @@ import { extractLocalUsers } from '../../utils/userDataConverters';
 interface UsersSlice {
   loading: Status;
   usersList: LocalUser[];
+  page: number;
+  totalPages: number | null;
   error: string | null;
 }
 
 const initialState: UsersSlice = {
   loading: 'idle',
   usersList: [],
+  page: 1,
+  totalPages: null,
   error: null,
 };
 
@@ -29,7 +33,11 @@ const usersSlice = createSlice({
       })
       .addCase(getUsers.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.usersList = extractLocalUsers(action.payload.data);
+        state.usersList = state.usersList.concat(
+          extractLocalUsers(action.payload.data)
+        );
+        state.page = state.page + 1;
+        state.totalPages = action.payload.total_pages;
       })
       .addCase(getUsers.rejected, (state, action) => {
         state.loading = 'failed';

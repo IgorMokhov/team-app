@@ -1,13 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { BASE_URL, USERS_URL } from '../../apiConfig';
-import { ReqresUser } from '../../types';
+import { BASE_URL, PAGINATION_LIMIT_PARAM, USERS_URL } from '../../apiConfig';
+import { UsersResponse } from '../../types';
 import axios from 'axios';
 
-export const getUsers = createAsyncThunk<{ data: ReqresUser[] }>(
+export const getUsers = createAsyncThunk<UsersResponse, number>(
   '@@/users/getUsers',
-  async () => {
+  async (page) => {
     try {
-      const response = await axios.get(BASE_URL + USERS_URL);
+      const response = await axios.get(
+        `${BASE_URL}${USERS_URL}${page}${PAGINATION_LIMIT_PARAM}`
+      );
+
       return response.data;
     } catch (error) {
       throw new Error((error as Error).message);

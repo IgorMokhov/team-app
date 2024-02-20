@@ -8,6 +8,7 @@ export const extractLocalUsers = (users: ReqresUser[]): LocalUser[] => {
     firstName: user.first_name,
     lastName: user.last_name,
     avatar: user.avatar,
+    like: false,
   }));
 };
 
@@ -18,4 +19,5 @@ export const extractLocalUser = (user: ReqresUser): LocalUser => ({
   firstName: user.first_name,
   lastName: user.last_name,
   avatar: user.avatar,
+  like: false,
 });

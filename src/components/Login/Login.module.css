@@ -27,7 +27,7 @@
   margin: 10px 0 20px 0;
   border: none;
   border-radius: 8px;
-  background-color: #f8f8f8;
+  background-color: var(--background-input);
 }
 
 .form input[type='submit'] {

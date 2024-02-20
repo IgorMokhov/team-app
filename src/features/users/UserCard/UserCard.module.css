@@ -9,16 +9,40 @@
   border: 1px solid transparent;
   transition: border 0.5s ease;
   justify-self: center;
+  position: relative;
 }
 
 .userCard:hover {
   border: 1px solid lightgray;
 }
 
-.userCard img {
+.avatar {
   padding: 35px 0 15px;
 }
 
 .userCard h4 {
   padding-bottom: 64px;
+}
+
+.likeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--background-input);
+  transition: all 0.5s ease;
+}
+
+.likeBtn img {
+  width: 16px;
+}
+
+.likeBtn:hover {
+  background-color: var(--hover-input);
 }

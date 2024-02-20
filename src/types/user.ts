@@ -12,4 +12,5 @@ export type LocalUser = {
   firstName: string;
   lastName: string;
   avatar: string;
-}
+  like: boolean;
+};

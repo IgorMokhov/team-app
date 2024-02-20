@@ -7,6 +7,7 @@ import { selectUsersInfo } from '../users-selectors';
 import { UserCard } from '../UserCard/UserCard';
 import { Button } from '../../../UI/Button/Button';
 import iconLoadMore from '../../../assets/icons/iconLoadMore.svg';
+import { setLikesFromStorage } from '../users-slice';
 import styles from './UsersList.module.css';
 
 export const UsersList = () => {
@@ -17,7 +18,9 @@ export const UsersList = () => {
     if (usersList.length === 0) {
       dispatch(getUsers(page));
     }
-  }, [dispatch, usersList.length]);
+    // Setting likes from localStorage after loading users
+    dispatch(setLikesFromStorage());
+  }, [dispatch, usersList.length, page]);
 
   return (
     <Container>

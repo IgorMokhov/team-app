@@ -5,7 +5,7 @@ export const PrivateRoute = () => {
   const { isAuth, isLoading } = useAuth();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Загрузка...</div>;
   }
 
   return isAuth ? <Outlet /> : <Navigate to="/" replace />;

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { LocalUser, Status } from '../../types';
 import { getDetailsUser } from './details-async-actions';
 import { extractLocalUser } from '../../utils/userDataConverters';
+import { getLikesFromStorage } from '../../utils/localStorageUtils';
 
 interface DetailsSlice {
   loading: Status;
@@ -29,7 +30,11 @@ const detailsSlice = createSlice({
       })
       .addCase(getDetailsUser.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.user = extractLocalUser(action.payload);
+        // Applying likes to users
+        const user = extractLocalUser(action.payload);
+        const likes = getLikesFromStorage();
+        user.like = likes.includes(user.id);
+        state.user = user;
       })
       .addCase(getDetailsUser.rejected, (state, action) => {
         state.loading = 'failed';

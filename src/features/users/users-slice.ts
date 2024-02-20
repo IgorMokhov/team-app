@@ -55,9 +55,9 @@ const usersSlice = createSlice({
       })
       .addCase(getUsers.fulfilled, (state, action) => {
         state.loading = 'succeeded';
+        // Applying likes to users
         const users = extractLocalUsers(action.payload.data);
         const likes = getLikesFromStorage();
-        // Applying likes to users
         const usersWithLikes = users.map((user) => ({
           ...user,
           like: likes.includes(user.id),
